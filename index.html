@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือติวเข้มฉบับเต็ม: Modal Verbs (should, must, have to / has to)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Sarabun', 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b1120;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.14) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #f1f5f9;
+        }
+
+        .heading-font {
+            font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+        }
+
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-up {
+            animation: fadeInSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer-bar {
+            background-size: 200% 100%;
+            animation: shimmer 2.5s infinite linear;
+        }
+
+        .glow-card {
+            transition: all 0.25s ease;
+        }
+        .glow-card:hover {
+            border-color: rgba(56, 189, 248, 0.35);
+            box-shadow: 0 12px 28px -6px rgba(14, 165, 233, 0.14);
+        }
+
+        .scroll-target {
+            scroll-margin-top: 155px;
+        }
+        @media (min-width: 1024px) {
+            .scroll-target {
+                scroll-margin-top: 135px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: #0f172a !important;
+                padding-bottom: 0 !important;
+            }
+            header, .no-print {
+                display: none !important;
+            }
+            section {
+                background: white !important;
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                color: #0f172a !important;
+                break-inside: avoid;
+            }
+            h2, h3, strong, p, td, th, div {
+                color: #0f172a !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24 selection:bg-cyan-500/30 selection:text-cyan-200">
+
+    <!-- Sticky Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 shadow-2xl transition-all">
+        <div class="max-w-5xl mx-auto px-4 pt-3 pb-3">
+            <!-- Top Row -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-500 to-sky-500 p-0.5 shadow-lg shadow-purple-500/20 flex items-center justify-center shrink-0">
+                        <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
+                            <span class="text-lg">📖</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-2 py-0.5 text-[11px] font-bold tracking-wider uppercase rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30">M.2 Study Guide</span>
+                            <span class="text-xs text-slate-400 font-medium">should • must • have to / has to</span>
+                        </div>
+                        <h1 class="text-base sm:text-lg font-bold text-white heading-font leading-snug">
+                            คู่มือติวเข้มฉบับเต็ม: Modal Verbs (ฉบับทบทวนก่อนสอบ)
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <!-- Sound Toggle -->
+                    <button id="sound-btn" onclick="toggleSound()" title="เปิด/ปิดเสียงเอฟเฟกต์" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700/80 text-slate-300 hover:text-white border border-slate-700/80 shadow-sm transition active:scale-95">
+                        <span id="sound-icon" class="text-base">🔊</span>
+                        <span id="sound-text" class="text-xs font-semibold hidden sm:inline">เปิดเสียง</span>
+                    </button>
+
+                    <!-- Print / Save PDF Button -->
+                    <button onclick="SoundFX.click(); window.print()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-400 hover:to-indigo-400 text-white font-bold text-xs sm:text-sm shadow-lg shadow-sky-500/25 transition active:scale-95">
+                        <span>🖨️</span>
+                        <span>พิมพ์ / บันทึก PDF</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Reading Progress Bar -->
+            <div class="w-full bg-slate-800/90 rounded-full h-2 overflow-hidden p-0.5 border border-slate-700/50 mb-3">
+                <div id="reading-progress" class="h-full rounded-full bg-gradient-to-r from-purple-400 via-sky-400 to-emerald-400 shimmer-bar transition-all duration-150" style="width: 0%;"></div>
+            </div>
+
+            <!-- Navigation Links (Responsive Grid - Always Visible) -->
+            <nav class="grid grid-cols-2 lg:grid-cols-4 gap-2 w-full" id="guide-nav">
+                <a href="#sec1" onclick="selectNav(this)" class="nav-pill w-full px-3 py-2 rounded-xl text-center transition-all duration-200 bg-gradient-to-r from-sky-500 to-blue-600 text-slate-950 font-bold shadow-md shadow-sky-500/20 text-xs sm:text-sm">
+                    1. ตารางเปรียบเทียบความหมาย
+                </a>
+                <a href="#sec2" onclick="selectNav(this)" class="nav-pill w-full px-3 py-2 rounded-xl text-center transition-all duration-200 bg-slate-800/90 text-slate-300 hover:bg-slate-700 border border-slate-700/70 font-semibold text-xs sm:text-sm">
+                    2. โครงสร้าง &amp; สูตรคืนร่าง
+                </a>
+                <a href="#sec3" onclick="selectNav(this)" class="nav-pill w-full px-3 py-2 rounded-xl text-center transition-all duration-200 bg-slate-800/90 text-slate-300 hover:bg-slate-700 border border-slate-700/70 font-semibold text-xs sm:text-sm">
+                    3. คลังคำศัพท์รหัสลับ
+                </a>
+                <a href="#sec4" onclick="selectNav(this)" class="nav-pill w-full px-3 py-2 rounded-xl text-center transition-all duration-200 bg-slate-800/90 text-slate-300 hover:bg-slate-700 border border-slate-700/70 font-semibold text-xs sm:text-sm">
+                    4. เช็กลิสต์ 4 ข้อกันพลาด
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 mt-6 space-y-6">
+
+        <!-- SECTION 1 -->
+        <section id="sec1" class="scroll-target animate-fade-up bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-5 sm:p-7 shadow-2xl">
+            <div class="border-b border-slate-800 pb-4 mb-5">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold mb-2">
+                    <span>บทที่ 1 จาก 4</span> • <span>Meaning &amp; Usage</span>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white heading-font">
+                    1. ตารางเปรียบเทียบความหมายและวิธีใช้แบบเห็นภาพชัด
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">
+                    หัวใจสำคัญของการทำข้อสอบเรื่องนี้คือการแยกให้ออกว่าประโยคนั้นเป็น <strong class="text-slate-200">คำแนะนำ</strong>, <strong class="text-slate-200">กฎบังคับ/ข้อห้าม</strong> หรือ <strong class="text-slate-200">ความจำเป็นที่เลือกได้</strong>
+                </p>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950/60">
+                <table class="w-full text-left border-collapse text-sm sm:text-base">
+                    <thead>
+                        <tr class="bg-slate-800/80 text-sky-300 text-xs sm:text-sm uppercase tracking-wider">
+                            <th class="py-3.5 px-4 font-bold border-b border-slate-800 w-[22%]">คำกริยาช่วย</th>
+                            <th class="py-3.5 px-4 font-bold border-b border-slate-800 w-[18%]">ความหมาย</th>
+                            <th class="py-3.5 px-4 font-bold border-b border-slate-800 w-[28%]">ที่มา / ระดับความจำเป็น</th>
+                            <th class="py-3.5 px-4 font-bold border-b border-slate-800 w-[32%]">ตัวอย่างประโยค</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 font-mono font-bold text-sm">should</code>
+                            </td>
+                            <td class="py-4 px-4 align-top font-semibold text-white">ควรจะ</td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                <strong class="text-sky-300">คำแนะนำด้วยความหวังดี</strong><br>
+                                <span class="text-slate-400 text-xs">(ทำหรือไม่ทำก็ได้ แต่ทำแล้วจะดี)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                You <strong class="text-white">should</strong> drink more water.<br>
+                                <span class="text-slate-400 text-xs">(คุณควรดื่มน้ำให้มากขึ้น)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 font-mono font-bold text-sm">shouldn't</code>
+                            </td>
+                            <td class="py-4 px-4 align-top font-semibold text-white">ไม่ควรจะ</td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                <strong class="text-sky-300">คำแนะนำว่าไม่ดี</strong><br>
+                                <span class="text-slate-400 text-xs">(เช่น เสียสุขภาพ หรือเป็นความคิดที่ไม่ดี)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                You <strong class="text-white">shouldn't</strong> stay up late.<br>
+                                <span class="text-slate-400 text-xs">(คุณไม่ควรนอนดึก)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 font-mono font-bold text-sm">must</code>
+                            </td>
+                            <td class="py-4 px-4 align-top font-semibold text-white">ต้อง</td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                <strong class="text-amber-300">สั่งตัวเอง / กฎเหล็กทางการ</strong><br>
+                                <span class="text-slate-400 text-xs">(มาจากความรู้สึกผู้พูด หรือป้ายประกาศ)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                Drivers <strong class="text-white">must</strong> fasten their seatbelts.<br>
+                                <span class="text-slate-400 text-xs">(คนขับต้องคาดเข็มขัดนิรภัย)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-rose-500/15 border border-rose-500/30 text-rose-300 font-mono font-bold text-sm">mustn't</code>
+                            </td>
+                            <td class="py-4 px-4 align-top font-bold text-rose-400">ห้ามทำ (เด็ดขาด)</td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                <strong class="text-rose-300">ข้อห้ามเด็ดขาด / อันตราย / ผิดกฎ</strong><br>
+                                <span class="text-slate-400 text-xs">(ฝ่าฝืนจะโดนลงโทษหรือเกิดผลเสีย)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                Students <strong class="text-white">mustn't</strong> cheat on exams.<br>
+                                <span class="text-slate-400 text-xs">(นักเรียนห้ามโกงข้อสอบ)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30 text-purple-300 font-mono font-bold text-sm inline-block">have to / has to</code>
+                            </td>
+                            <td class="py-4 px-4 align-top font-semibold text-white">ต้อง / จำเป็นต้อง</td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                <strong class="text-purple-300">ความจำเป็นจากปัจจัยภายนอก</strong><br>
+                                <span class="text-slate-400 text-xs">(กฎโรงเรียน, หมอสั่ง, ตารางเวลาบังคับ)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                She <strong class="text-white">has to</strong> see the doctor tomorrow.<br>
+                                <span class="text-slate-400 text-xs">(เธอต้องไปหาหมอพรุ่งนี้)</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-mono font-bold text-sm inline-block">don't / doesn't have to</code>
+                            </td>
+                            <td class="py-4 px-4 align-top font-bold text-emerald-400">ไม่จำเป็นต้องทำ</td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                <strong class="text-emerald-300">ไม่มีข้อบังคับ / เป็นทางเลือก</strong><br>
+                                <span class="text-slate-400 text-xs">(ไม่ทำก็ไม่ผิด ไม่มีใครว่า)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top text-sm">
+                                Today is a holiday. Monica <strong class="text-white">doesn't have to</strong> work.<br>
+                                <span class="text-slate-400 text-xs">(วันนี้วันหยุด โมนิกาไม่จำเป็นต้องทำงาน)</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Callout Box -->
+            <div class="mt-6 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border-l-4 border-amber-400 rounded-r-2xl p-4 sm:p-5">
+                <div class="flex items-center gap-2 font-bold text-amber-300 text-base mb-2">
+                    <span>⚡</span>
+                    <span>จุดตายที่ออกสอบบ่อยที่สุด: mustn't vs. don't / doesn't have to</span>
+                </div>
+                <p class="text-sm text-slate-200 mb-3">
+                    ให้ถามตัวเองก่อนตอบทุกครั้งว่า: <strong class="text-white underline decoration-amber-400/60 underline-offset-4">"ถ้าฝ่าฝืนทำลงไป จะโดนดุ / อันตราย / ผิดกฎไหม?"</strong>
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                    <div class="p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/30">
+                        <div class="font-bold text-rose-400 mb-1">🚫 ถ้าโดนดุ / อันตราย / ผิดกฎ</div>
+                        <p class="text-xs text-slate-300 mb-1.5">(เช่น ป้ายห้าม, แม่สั่งห้าม, กุญแจดอกเดียวห้ามหาย, เดี๋ยวตกเครื่อง)</p>
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-rose-500/20 text-rose-300 font-mono font-bold text-xs">→ ใช้ mustn't</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
+                        <div class="font-bold text-emerald-400 mb-1">✅ ถ้าไม่ทำก็ไม่เป็นไร แค่เสียเวลาฟรี</div>
+                        <p class="text-xs text-slate-300 mb-1.5">(เช่น รถไม่เสียไม่ต้องซ่อม, ยังไม่ถึงเวลาเรียน, ไม่ได้บังคับ)</p>
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 font-mono font-bold text-xs">→ ใช้ don't / doesn't have to</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <section id="sec2" class="scroll-target animate-fade-up bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-5 sm:p-7 shadow-2xl">
+            <div class="border-b border-slate-800 pb-4 mb-5">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold mb-2">
+                    <span>บทที่ 2 จาก 4</span> • <span>Grammar Structure</span>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white heading-font">
+                    2. โครงสร้างประโยคและ "สูตรคืนร่าง" (สำคัญมากสำหรับข้อสอบเติมคำ &amp; จับผิด)
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">
+                    กริยาช่วยกลุ่มนี้แบ่งนิสัยออกเป็น <strong class="text-white">2 ทีม</strong> ที่แต่งประโยคต่างกันสิ้นเชิง
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Team A -->
+                <div class="glow-card bg-slate-950/70 border border-slate-800 border-t-4 border-t-emerald-400 rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-300 text-xs font-bold mb-2">Team A</div>
+                        <h3 class="text-lg font-bold text-emerald-400 heading-font mb-2">
+                            should และ must (กลุ่มเก่งด้วยตัวเอง)
+                        </h3>
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                            <strong class="text-white">นิสัย:</strong> ใช้หน้าตาเดียวกับทุกประธาน (<code class="text-sky-300 font-mono">I, You, We, They, He, She, It</code>) <strong class="text-amber-300">ห้ามเติม -s</strong> และแต่งประโยคปฏิเสธ/คำถามได้เองโดย <strong class="text-rose-300">ห้ามเอา do / does / don't / doesn't มายุ่งเด็ดขาด</strong>
+                        </p>
+                        <div class="space-y-2 text-sm bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 mb-4">
+                            <div><span class="text-emerald-400 font-bold">(+) บอกเล่า:</span> ประธาน + <code class="text-amber-300 font-mono">should / must</code> + <strong>V.1 (ไม่ผัน)</strong></div>
+                            <div><span class="text-rose-400 font-bold">(-) ปฏิเสธ:</span> ประธาน + <code class="text-amber-300 font-mono">shouldn't / mustn't</code> + <strong>V.1 (ไม่ผัน)</strong></div>
+                            <div><span class="text-sky-400 font-bold">(?) คำถาม:</span> <code class="text-amber-300 font-mono">Should / Must</code> + ประธาน + <strong>V.1 (ไม่ผัน)</strong>?</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/70 border border-slate-800/80 rounded-xl p-3.5 text-xs sm:text-sm space-y-2">
+                        <div class="font-bold text-amber-300">⚠️ ตัวอย่างจุดผิดที่พบบ่อย:</div>
+                        <div>
+                            <span class="text-rose-400 line-through">✗ Rachel doesn't should smoke.</span><br>
+                            <span class="text-emerald-400 font-semibold">✓ Rachel shouldn't smoke.</span>
+                        </div>
+                        <div>
+                            <span class="text-rose-400 line-through">✗ Patients should resting.</span><br>
+                            <span class="text-emerald-400 font-semibold">✓ Patients should rest.</span>
+                            <span class="text-slate-400 text-xs block mt-0.5">(หลัง should/must ต้องเป็น V.1 เพียวๆ ห้ามเติม -ing, -ed, -s หรือ to)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team B -->
+                <div class="glow-card bg-slate-950/70 border border-slate-800 border-t-4 border-t-sky-400 rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-block px-2.5 py-0.5 rounded-md bg-sky-500/15 text-sky-300 text-xs font-bold mb-2">Team B</div>
+                        <h3 class="text-lg font-bold text-sky-400 heading-font mb-2">
+                            have to และ has to (กลุ่มต้องยืม Do / Does)
+                        </h3>
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                            <strong class="text-white">นิสัย:</strong> ผันตามประธาน และเวลาทำเป็นปฏิเสธหรือคำถาม ต้องไปยืม <code class="text-sky-300 font-mono">Do / Does</code> มาช่วยเสมอ
+                        </p>
+                        <div class="space-y-2.5 text-sm bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 mb-4">
+                            <div>
+                                <span class="text-emerald-400 font-bold">(+) บอกเล่า:</span>
+                                <div class="pl-3 text-xs sm:text-sm text-slate-300 mt-0.5">
+                                    • พหูพจน์ (<code class="text-sky-300 font-mono">I, You, We, They</code>, นามเติม -s) + <code class="text-amber-300 font-mono">have to</code> + V.1<br>
+                                    • เอกพจน์ (<code class="text-sky-300 font-mono">He, She, It</code>, คนเดียว) + <code class="text-amber-300 font-mono">has to</code> + V.1
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-rose-400 font-bold">(-) ปฏิเสธ:</span>
+                                <div class="pl-3 text-xs sm:text-sm text-slate-300 mt-0.5">
+                                    • พหูพจน์ + <code class="text-amber-300 font-mono">don't have to</code> + V.1<br>
+                                    • เอกพจน์ + <code class="text-amber-300 font-mono">doesn't have to</code> + V.1 <em class="text-emerald-300">(คืนร่างเป็น have to เสมอ!)</em>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-sky-400 font-bold">(?) คำถาม:</span>
+                                <div class="pl-3 text-xs sm:text-sm text-slate-300 mt-0.5">
+                                    • (Wh-) + <code class="text-amber-300 font-mono">Do</code> + พหูพจน์ + <code class="text-amber-300 font-mono">have to</code> + V.1?<br>
+                                    • (Wh-) + <code class="text-amber-300 font-mono">Does</code> + เอกพจน์ + <code class="text-amber-300 font-mono">have to</code> + V.1? <em class="text-emerald-300">(คืนร่าง!)</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/70 border border-slate-800/80 rounded-xl p-3.5 text-xs sm:text-sm space-y-1.5">
+                        <div class="font-bold text-amber-300">⚠️ ตัวอย่างจุดผิดที่พบบ่อย:</div>
+                        <div><span class="text-rose-400 line-through">✗ Where Sara have to go?</span> → <span class="text-emerald-400 font-semibold">✓ Where does Sara have to go?</span></div>
+                        <div><span class="text-rose-400 line-through">✗ Has he to take medicine?</span> → <span class="text-emerald-400 font-semibold">✓ Does he have to take medicine?</span></div>
+                        <div><span class="text-rose-400 line-through">✗ Ian doesn't has to work.</span> → <span class="text-emerald-400 font-semibold">✓ Ian doesn't have to work.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section id="sec3" class="scroll-target animate-fade-up bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-5 sm:p-7 shadow-2xl">
+            <div class="border-b border-slate-800 pb-4 mb-5">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold mb-2">
+                    <span>บทที่ 3 จาก 4</span> • <span>Secret Keywords</span>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white heading-font">
+                    3. คลังคำศัพท์ "รหัสลับ" สำหรับข้อสอบแปลงประโยค (Sentence Transformation)
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">
+                    ในข้อสอบมักให้ประโยคคำอธิบายมา แล้วให้เราแปลงเป็นประโยคที่ใช้ <code class="text-sky-300 font-mono">should</code>, <code class="text-amber-300 font-mono">must</code> หรือ <code class="text-emerald-300 font-mono">have to</code> ให้จับคู่คำศัพท์เหล่านี้ไว้เลย
+                </p>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950/60">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-800/80 text-amber-300 text-xs sm:text-sm uppercase tracking-wider">
+                            <th class="py-3.5 px-4 font-bold border-b border-slate-800 w-[32%]">ถ้าโจทย์ให้คำนี้มาในประโยคแรก...</th>
+                            <th class="py-3.5 px-4 font-bold border-b border-slate-800 w-[24%]">ให้แปลงเป็นคำนี้</th>
+                            <th class="py-3.5 px-4 font-bold border-b border-slate-800 w-[44%]">ตัวอย่างการแปลงประโยค</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <strong class="text-white">not allowed to</strong> <span class="text-slate-400 text-xs">(ไม่ได้รับอนุญาต)</span><br>
+                                <strong class="text-white">forbidden</strong> <span class="text-slate-400 text-xs">(ต้องห้าม)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-rose-500/15 border border-rose-500/30 text-rose-300 font-mono font-bold">mustn't</code>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                We're <strong class="text-amber-300">not allowed to</strong> text in class.<br>
+                                → We <strong class="text-emerald-400">mustn't</strong> text in class.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <strong class="text-white">mandatory</strong> <span class="text-slate-400 text-xs">(เป็นข้อบังคับ)</span><br>
+                                <strong class="text-white">compulsory</strong> <span class="text-slate-400 text-xs">(บังคับทำ)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 font-mono font-bold">must / have to</code>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                It is <strong class="text-amber-300">mandatory</strong> to wear a helmet.<br>
+                                → You <strong class="text-emerald-400">must</strong> wear a helmet.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <strong class="text-white">necessary</strong> <span class="text-slate-400 text-xs">(จำเป็น)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30 text-purple-300 font-mono font-bold">have to / has to</code>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                Is it <strong class="text-amber-300">necessary</strong> for him to practice?<br>
+                                → <strong class="text-emerald-400">Does</strong> he <strong class="text-emerald-400">have to</strong> practice?
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <strong class="text-white">not necessary</strong> <span class="text-slate-400 text-xs">(ไม่จำเป็น)</span><br>
+                                <strong class="text-white">can ... any ... he/she likes</strong> <span class="text-slate-400 text-xs">(ตามใจชอบ)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-mono font-bold">don't / doesn't have to</code>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                He <strong class="text-amber-300">can wear any clothes he likes</strong>.<br>
+                                → He <strong class="text-emerald-400">doesn't have to</strong> wear a uniform.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <strong class="text-white">a bad idea</strong> <span class="text-slate-400 text-xs">(เป็นความคิดที่ไม่ดี)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 font-mono font-bold">shouldn't</code>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                It's <strong class="text-amber-300">a bad idea</strong> to wear a suit.<br>
+                                → You <strong class="text-emerald-400">shouldn't</strong> wear a suit.
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition">
+                            <td class="py-4 px-4 align-top">
+                                <strong class="text-white">advise</strong> <span class="text-slate-400 text-xs">(แนะนำ)</span>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                <code class="px-2.5 py-1 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 font-mono font-bold">should</code>
+                            </td>
+                            <td class="py-4 px-4 align-top">
+                                Can you <strong class="text-amber-300">advise</strong> me which phone to buy?<br>
+                                → Which phone <strong class="text-emerald-400">should</strong> I buy?
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 4 -->
+        <section id="sec4" class="scroll-target animate-fade-up bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-5 sm:p-7 shadow-2xl">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-5">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold mb-2">
+                        <span>บทที่ 4 จาก 4</span> • <span>Interactive Checklist</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white heading-font">
+                        4. เช็กลิสต์ 4 ข้อก่อนส่งกระดาษคำตอบ (กันพลาดจุดเล็กๆ)
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">ลองแตะติ๊กถูกทีละข้อเพื่อทบทวนความพร้อมก่อนลุยข้อสอบจริง!</p>
+                </div>
+                <div class="px-3.5 py-2 rounded-2xl bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
+                    เช็กแล้ว: <span id="check-count" class="font-bold text-emerald-400">0/4 ข้อ</span>
+                </div>
+            </div>
+
+            <div class="space-y-3" id="checklist-container">
+                <button onclick="toggleChecklist(this)" class="chk-item w-full text-left glow-card bg-slate-950/70 border border-slate-800 rounded-2xl p-4 flex items-start gap-3.5 transition active:scale-[0.99]">
+                    <div class="chk-badge w-7 h-7 rounded-xl bg-purple-500/20 border border-purple-400/50 text-purple-300 font-extrabold text-sm flex items-center justify-center shrink-0 mt-0.5 transition">1</div>
+                    <div class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        <strong class="text-white">เช็กประธานเอกพจน์ / พหูพจน์:</strong> เจอ <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 font-mono text-xs">Jessica, Sara, My father, Monica, Mark, Sharon, Ian, He, She, It</code> (คนเดียว/สิ่งเดียว) ต้องนึกถึง <code class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-mono text-xs">has to</code> / <code class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-mono text-xs">doesn't have to</code> / <code class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-mono text-xs">Does ... have to</code> ทันที
+                    </div>
+                </button>
+
+                <button onclick="toggleChecklist(this)" class="chk-item w-full text-left glow-card bg-slate-950/70 border border-slate-800 rounded-2xl p-4 flex items-start gap-3.5 transition active:scale-[0.99]">
+                    <div class="chk-badge w-7 h-7 rounded-xl bg-purple-500/20 border border-purple-400/50 text-purple-300 font-extrabold text-sm flex items-center justify-center shrink-0 mt-0.5 transition">2</div>
+                    <div class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        <strong class="text-white">เช็กเวลา (Tense):</strong> ถ้าถามกิจวัตรทั่วไปหรือมีคำว่า <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 font-mono text-xs">today, tomorrow, this afternoon</code> ให้ใช้รูปปัจจุบัน (<code class="px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-mono text-xs">Do / Does</code>) อย่าเผลอใช้รูปอดีต (<code class="px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-300 font-mono text-xs">Did</code>)
+                    </div>
+                </button>
+
+                <button onclick="toggleChecklist(this)" class="chk-item w-full text-left glow-card bg-slate-950/70 border border-slate-800 rounded-2xl p-4 flex items-start gap-3.5 transition active:scale-[0.99]">
+                    <div class="chk-badge w-7 h-7 rounded-xl bg-purple-500/20 border border-purple-400/50 text-purple-300 font-extrabold text-sm flex items-center justify-center shrink-0 mt-0.5 transition">3</div>
+                    <div class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        <strong class="text-white">เช็กหน้าตากริยาตัวถัดไป:</strong> หลัง <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 font-mono text-xs">should / must / have to</code> กริยาต้องเป็นช่อง 1 ไม่เติมอะไรเลย (เช่น <em>have to <strong class="text-emerald-300">change</strong></em>, <em>should <strong class="text-emerald-300">rest</strong></em>)
+                    </div>
+                </button>
+
+                <button onclick="toggleChecklist(this)" class="chk-item w-full text-left glow-card bg-slate-950/70 border border-slate-800 rounded-2xl p-4 flex items-start gap-3.5 transition active:scale-[0.99]">
+                    <div class="chk-badge w-7 h-7 rounded-xl bg-purple-500/20 border border-purple-400/50 text-purple-300 font-extrabold text-sm flex items-center justify-center shrink-0 mt-0.5 transition">4</div>
+                    <div class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        <strong class="text-white">เช็กตัว -s ท้ายคำนามตอนเรียงประโยค:</strong> ถ้าโจทย์ให้คำว่า <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 font-mono text-xs">visitors</code> หรือ <code class="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 font-mono text-xs">books</code> มา ห้ามลอกตกตัว <code class="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 font-mono text-xs">-s</code> เด็ดขาด (ต้องเขียน <em>Visitors must not...</em> และ <em>...return their books...</em> ให้ครบทุกตัวอักษร)
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Bottom Action Banner -->
+        <div class="no-print bg-gradient-to-r from-slate-900/90 via-indigo-950/60 to-slate-900/90 border border-sky-500/30 rounded-3xl p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4 shadow-2xl">
+            <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-sky-500/15 border border-sky-500/30 text-sky-400 flex items-center justify-center text-2xl shrink-0">
+                    🎓
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-base sm:text-lg heading-font">ทบทวนครบทั้ง 4 บทเรียนแล้ว!</h4>
+                    <p class="text-xs sm:text-sm text-slate-400">สามารถพิมพ์เก็บไว้อ่านทบทวน หรือกลับขึ้นด้านบนเพื่อทวนจุดสำคัญอีกรอบได้ทันที</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+                <button onclick="SoundFX.click(); window.print()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-sm transition active:scale-95 flex items-center gap-1.5">
+                    <span>🖨️</span>
+                    <span>พิมพ์คู่มือ</span>
+                </button>
+                <a href="#" onclick="SoundFX.click()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm shadow-lg shadow-emerald-500/25 transition hover:scale-105 active:scale-95 flex items-center gap-1.5">
+                    <span>⬆️</span>
+                    <span>กลับขึ้นด้านบน</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Web Audio Synthesizer
+        const SoundFX = {
+            ctx: null,
+            muted: false,
+            init() {
+                if (!this.ctx) {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    if (AudioCtx) this.ctx = new AudioCtx();
+                }
+                if (this.ctx && this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+            },
+            click() {
+                if (this.muted) return;
+                this.init();
+                if (!this.ctx) return;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(520, this.ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(780, this.ctx.currentTime + 0.04);
+                gain.gain.setValueAtTime(0.06, this.ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start();
+                osc.stop(this.ctx.currentTime + 0.04);
+            },
+            success() {
+                if (this.muted) return;
+                this.init();
+                if (!this.ctx) return;
+                const now = this.ctx.currentTime;
+                [587.33, 880].forEach((freq, idx) => {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.value = freq;
+                    const t = now + idx * 0.06;
+                    gain.gain.setValueAtTime(0, t);
+                    gain.gain.linearRampToValueAtTime(0.1, t + 0.015);
+                    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(t);
+                    osc.stop(t + 0.22);
+                });
+            }
+        };
+
+        function toggleSound() {
+            SoundFX.muted = !SoundFX.muted;
+            const icon = document.getElementById('sound-icon');
+            const text = document.getElementById('sound-text');
+            if (SoundFX.muted) {
+                icon.textContent = '🔇';
+                text.textContent = 'ปิดเสียง';
+            } else {
+                icon.textContent = '🔊';
+                text.textContent = 'เปิดเสียง';
+                SoundFX.click();
+            }
+        }
+
+        function selectNav(el) {
+            SoundFX.click();
+            document.querySelectorAll('.nav-pill').forEach(pill => {
+                pill.className = 'nav-pill w-full px-3 py-2 rounded-xl text-center transition-all duration-200 bg-slate-800/90 text-slate-300 hover:bg-slate-700 border border-slate-700/70 font-semibold text-xs sm:text-sm';
+            });
+            el.className = 'nav-pill w-full px-3 py-2 rounded-xl text-center transition-all duration-200 bg-gradient-to-r from-sky-500 to-blue-600 text-slate-950 font-bold shadow-md shadow-sky-500/20 text-xs sm:text-sm';
+        }
+
+        // Interactive Checklist
+        function toggleChecklist(btn) {
+            const checked = btn.dataset.checked === 'true';
+            const badge = btn.querySelector('.chk-badge');
+            const index = Array.from(document.querySelectorAll('.chk-item')).indexOf(btn) + 1;
+
+            if (checked) {
+                btn.dataset.checked = 'false';
+                SoundFX.click();
+                btn.classList.remove('border-emerald-500/60', 'bg-emerald-950/25');
+                btn.classList.add('border-slate-800', 'bg-slate-950/70');
+                badge.className = 'chk-badge w-7 h-7 rounded-xl bg-purple-500/20 border border-purple-400/50 text-purple-300 font-extrabold text-sm flex items-center justify-center shrink-0 mt-0.5 transition';
+                badge.textContent = index;
+            } else {
+                btn.dataset.checked = 'true';
+                SoundFX.success();
+                btn.classList.remove('border-slate-800', 'bg-slate-950/70');
+                btn.classList.add('border-emerald-500/60', 'bg-emerald-950/25');
+                badge.className = 'chk-badge w-7 h-7 rounded-xl bg-emerald-500 text-slate-950 font-extrabold text-sm flex items-center justify-center shrink-0 mt-0.5 transition';
+                badge.textContent = '✓';
+            }
+
+            const totalChecked = document.querySelectorAll('.chk-item[data-checked="true"]').length;
+            document.getElementById('check-count').textContent = `${totalChecked}/4 ข้อ`;
+        }
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = docHeight > 0 ? Math.min(100, Math.round((window.scrollY / docHeight) * 100)) : 0;
+            document.getElementById('reading-progress').style.width = `${scrolled}%`;
+        });
+    </script>
+</body>
+</html>
